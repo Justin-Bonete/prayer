@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102d25">
+  <meta name="description" content="A quiet place for morning and night prayer as you prepare for your board examination.">
+  <title>A Prayer for You | Faith, Wisdom & Strength</title>
+  <style>
+    :root {
+      --forest: #102d25;
+      --forest-2: #173d31;
+      --forest-3: #205343;
+      --gold: #e7c477;
+      --gold-bright: #f5d995;
+      --cream: #fff8e9;
+      --muted: #d4dfd5;
+      --line: rgba(231,196,119,.38);
+      --panel: rgba(255,248,233,.055);
+      --shadow: 0 24px 70px rgba(0,0,0,.22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--cream);
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(63,112,78,.28), transparent 38%),
+        radial-gradient(ellipse at 0% 70%, rgba(184,143,65,.09), transparent 35%),
+        var(--forest);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; gap: 11px; align-items: center; text-decoration: none; color: var(--cream); }
+    .brand-mark {
+      display: grid; place-items: center; width: 42px; height: 42px;
+      border: 1px solid var(--gold); border-radius: 50%; color: var(--gold); font-size: 23px;
+    }
+    .brand strong { display: block; font-size: 15px; letter-spacing: .06em; }
+    .brand small { display: block; color: var(--muted); font: 11px/1.4 Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+    .top-note { color: var(--gold); font-size: 13px; text-align: right; }
+    .hero { text-align: center; padding: 62px 0 38px; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .24em; font: 11px Arial, sans-serif; }
+    h1 { margin: 12px auto 12px; font-size: clamp(40px, 7vw, 76px); line-height: 1.04; font-weight: 500; letter-spacing: -.035em; }
+    h1 span { display: block; color: var(--gold); font-style: italic; }
+    .hero p { max-width: 610px; margin: 20px auto; color: var(--muted); font-size: 17px; }
+    .verse { max-width: 650px; margin: 28px auto 0; padding: 18px 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .verse blockquote { margin: 0; font-size: 20px; font-style: italic; }
+    .verse cite { display: block; margin-top: 6px; color: var(--gold); font: 12px Arial, sans-serif; letter-spacing: .08em; font-style: normal; }
+    .tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 18px 0 30px; }
+    .tab {
+      border: 1px solid var(--line); border-radius: 999px; padding: 12px 22px;
+      background: transparent; color: var(--cream); cursor: pointer; transition: .2s ease;
+    }
+    .tab:hover, .tab.active { background: var(--gold); color: #182a20; border-color: var(--gold); }
+    .tab:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid white; outline-offset: 3px; }
+    .main-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(260px, .85fr); gap: 22px; align-items: start; }
+    .card {
+      border: 1px solid var(--line); border-radius: 22px; padding: clamp(22px, 4vw, 38px);
+      background: linear-gradient(145deg, rgba(255,248,233,.07), rgba(255,248,233,.025));
+      box-shadow: var(--shadow);
+    }
+    .card + .card { margin-top: 18px; }
+    .section-kicker { color: var(--gold); font: 11px Arial, sans-serif; text-transform: uppercase; letter-spacing: .2em; }
+    h2 { font-size: clamp(27px, 4vw, 38px); line-height: 1.2; font-weight: 500; margin: 8px 0 18px; }
+    h3 { margin: 0 0 9px; font-size: 21px; color: var(--gold-bright); font-weight: 500; }
+    .prayer-text p { margin: 0 0 16px; color: #f5f0e5; }
+    .prayer-text p:last-child { margin-bottom: 0; }
+    .prayer-text strong { color: var(--gold-bright); font-weight: 600; }
+    .amen-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .amen-row small { color: var(--muted); font: 12px Arial, sans-serif; }
+    .gold-btn {
+      border: 0; border-radius: 999px; background: var(--gold); color: #182a20;
+      padding: 12px 20px; cursor: pointer; font: 700 13px Arial, sans-serif; letter-spacing: .02em;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .gold-btn:hover { transform: translateY(-2px); background: var(--gold-bright); }
+    .side-card { padding: 24px; }
+    .side-card p { color: var(--muted); margin: 0; }
+    .daily-verse { font-size: 19px; font-style: italic; color: var(--cream) !important; margin: 12px 0 !important; }
+    .reference { color: var(--gold) !important; font: 12px Arial, sans-serif; letter-spacing: .06em; }
+    .reminder-list { list-style: none; padding: 0; margin: 14px 0 0; }
+    .reminder-list li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(231,196,119,.16); color: var(--muted); }
+    .reminder-list li:last-child { border-bottom: 0; }
+    .check { color: var(--gold); }
+    .affirmation { color: var(--gold-bright) !important; font-style: italic; font-size: 18px; }
+    .bottom-message { text-align: center; padding: 55px 0 28px; }
+    .bottom-message .heart { color: var(--gold); font-size: 24px; }
+    .bottom-message p { color: var(--muted); margin: 7px auto; max-width: 570px; }
+    footer { text-align: center; color: rgba(212,223,213,.65); font: 11px Arial, sans-serif; padding: 18px 0 30px; letter-spacing: .06em; }
+    .hidden { display: none !important; }
+    .toast { min-height: 22px; color: var(--gold-bright); font: 12px Arial, sans-serif; }
+    @media (max-width: 760px) {
+      .top-note { display: none; }
+      .hero { padding: 45px 0 26px; }
+      .hero p { font-size: 15px; }
+      .verse blockquote { font-size: 17px; }
+      .main-grid { grid-template-columns: 1fr; }
+      .side-column { display: grid; grid-template-columns: 1fr; gap: 16px; }
+      .card + .card { margin-top: 0; }
+      .tabs { display: grid; grid-template-columns: 1fr 1fr; }
+      .tab { padding: 11px 8px; font-size: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#" aria-label="A Prayer for You home">
+      <span class="brand-mark" aria-hidden="true">✝</span>
+      <span><strong>A PRAYER FOR YOU</strong><small>Faith · Wisdom · Strength</small></span>
+    </a>
+    <div class="top-note">A little reminder that you are never alone ♡</div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">For the woman working toward her dream</div>
+      <h1>My Prayer <span>for You</span></h1>
+      <p>For your board examination, your peace of mind, and the beautiful future you are working so hard for. Take a breath. Be still. Give your worries to God.</p>
+      <div class="verse">
+        <blockquote>“Trust in the Lord with all your heart and lean not on your own understanding.”</blockquote>
+        <cite>PROVERBS 3:5–6</cite>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Prayer selection">
+      <button class="tab active" data-mode="morning" aria-pressed="true">☀ Morning Prayer</button>
+      <button class="tab" data-mode="night" aria-pressed="false">☾ Night Prayer</button>
+      <button class="tab" data-mode="main" aria-pressed="false">♡ Our Main Prayer</button>
+      <button class="tab" data-mode="encouragement" aria-pressed="false">✧ Encouragement</button>
+    </nav>
+
+    <div class="main-grid">
+      <section class="card" aria-live="polite">
+        <div id="prayer-panel">
+          <div class="section-kicker" id="prayer-kicker">Begin again with God</div>
+          <h2 id="prayer-title">A Morning Prayer for Wisdom & Courage</h2>
+          <div class="prayer-text" id="prayer-content"></div>
+          <div class="amen-row">
+            <small id="prayer-footnote">Take your time. Read with a peaceful heart.</small>
+            <button class="gold-btn" id="amen-button">I prayed today · Amen</button>
+          </div>
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <aside class="side-column">
+        <section class="card side-card">
+          <div class="section-kicker">Word to carry today</div>
+          <h3>Daily Bible Verse</h3>
+          <p class="daily-verse" id="daily-verse">“The Lord gives wisdom; from His mouth come knowledge and understanding.”</p>
+          <p class="reference" id="daily-reference">PROVERBS 2:6</p>
+          <p style="margin-top:13px;font-size:13px;">You do not have to know everything at once. Take the next faithful step.</p>
+        </section>
+        <section class="card side-card">
+          <div class="section-kicker">A gentle reminder</div>
+          <h3>For Her Board Exam</h3>
+          <ul class="reminder-list">
+            <li><span class="check">✦</span><span>Study with focus, not fear.</span></li>
+            <li><span class="check">✦</span><span>Rest when your mind needs rest.</span></li>
+            <li><span class="check">✦</span><span>Trust your preparation and keep practicing.</span></li>
+            <li><span class="check">✦</span><span>Ask for help when a lesson feels difficult.</span></li>
+            <li><span class="check">✦</span><span>Give God what you cannot control.</span></li>
+          </ul>
+        </section>
+        <section class="card side-card">
+          <div class="section-kicker">Words from someone who loves you</div>
+          <h3>You are loved, always.</h3>
+          <p class="affirmation">“Your worth is not measured by a score. I am proud of your effort, your courage, and the person you are becoming.”</p>
+          <p style="margin-top:14px;font-size:12px;">Keep going, my love. One day, one lesson, one prayer at a time. ♡</p>
+        </section>
+      </aside>
+    </div>
+
+    <section class="bottom-message">
+      <div class="heart">♡</div>
+      <h2 style="margin-bottom:8px;">Study with dedication.<br><span style="color:var(--gold);font-style:italic;">Walk with faith.</span></h2>
+      <p>May God guide your mind, steady your heart, and give you strength for each step. You are doing your part; trust Him with the rest.</p>
+      <p style="color:var(--gold);margin-top:17px;">With love, prayers, and hope — always.</p>
+    </section>
+  </main>
+  <footer>MADE WITH LOVE · FOR HER JOURNEY · TO GOD BE THE GLORY [Develop By: Carl Justin B. Bonete]</footer>
+
+  <script>
+    const prayers = {
+      morning: {
+        kicker: "Begin again with God",
+        title: "A Morning Prayer for Wisdom & Courage",
+        footnote: "Start gently. You don't have to solve everything today.",
+        paragraphs: [
+          "Heavenly Father, thank You for the gift of a new day. Thank You for the life You have given me, for the dream in my heart, and for another opportunity to learn and grow.",
+          "Lord, please guide my thoughts today. Give me wisdom to understand what I study, patience when a lesson is difficult, and discipline to use my time well. Help me remember what I have learned and recognize where I still need to improve.",
+          "When fear or self-doubt tries to take over, remind me that I am not alone. Quiet the noise in my mind and replace it with peace, courage, and a steady heart. Help me do my best without comparing my journey with anyone else's.",
+          "Bless my body with strength, my mind with clarity, and my heart with hope. Teach me to take healthy breaks, ask for help when I need it, and keep going even when progress feels slow.",
+          "I place this day, my studies, and my board examination in Your hands. Help me be faithful in the work before me and trust You with what I cannot control. Let my actions reflect gratitude, humility, and perseverance.",
+          "In Jesus' name, Amen."
+        ]
+      },
+      night: {
+        kicker: "Rest in His promises",
+        title: "A Night Prayer for Peaceful Rest",
+        footnote: "Let today be enough. Tomorrow can begin tomorrow.",
+        paragraphs: [
+          "Dear Heavenly Father, thank You for staying with me through this day. Thank You for every lesson learned, every challenge faced, and every small step forward, even the ones no one else noticed.",
+          "Tonight, I surrender my worries to You. If I feel behind, anxious, or afraid of the board examination, please calm my heart. Help me remember that one difficult day does not define my future and that I can begin again with Your help.",
+          "Forgive me for the moments I became impatient with myself. Teach me to be gentle with my heart while remaining committed to my goals. Help me release comparisons, overthinking, and the pressure to be perfect.",
+          "Please protect me and my family through the night. Give me deep, peaceful sleep and renew my energy, memory, and focus. Let my mind rest so I can learn better tomorrow.",
+          "I have done what I could today. I entrust the unfinished tasks, the examination, and my future to You. Whatever tomorrow brings, help me meet it with faith and courage.",
+          "In Jesus' loving name, Amen."
+        ]
+      },
+      main: {
+        kicker: "A prayer from a heart that loves you",
+        title: "Lord, Guide Her Steps",
+        footnote: "A prayer for her studies, examination, future, and peace.",
+        paragraphs: [
+          "Heavenly Father, I come before You with a humble heart, bringing before You the woman I love so dearly. Lord, You know her heart, her dreams, her sacrifices, and the battles she silently faces. You see every hour she spends studying, every lesson she struggles to understand, every tear she holds back, and every moment she wonders whether she is good enough.",
+          "Father, please embrace her with Your love. When her mind is exhausted, renew her strength. When anxiety begins to overwhelm her, fill her heart with Your peace. When she doubts herself, remind her that she has come so far through Your grace. When the road becomes difficult, give her the courage to continue.",
+          "Lord, bless her mind with wisdom, understanding, and clarity. Help her remember what she has studied. Give her patience to understand difficult questions, discipline to use her time wisely, and discernment to choose the best answers. Protect her from unnecessary distractions, discouragement, and fear. Let her preparation be fruitful.",
+          "Father, as she prepares for her board examination, calm her heart. When she enters the examination room, let her not be controlled by panic or pressure. Help her breathe, think clearly, read carefully, and trust the preparation she has done. Remind her that she can call upon You in every moment.",
+          "Lord, protect her health. Give her restful sleep, a peaceful mind, a strong body, and enough energy to continue. Teach her that resting is not weakness, that asking for help is not failure, and that her worth is never measured by a score or a title.",
+          "And Father, if it is according to Your will, may You bless her with the joy of passing her board examination. May the long nights of studying, the sacrifices, the patience, and the effort she has offered bring her closer to the dream she has prayed for. Open the doors that are right for her, and prepare her for the responsibilities of her future profession.",
+          "Above all, Lord, teach her to trust You even when she cannot see what lies ahead. If she becomes afraid, remind her of Your faithfulness. If she becomes tired, carry her through difficult days. If the answer does not come when she expects it, keep her hope alive and her faith unshaken.",
+          "As someone who loves her, I pray that I may become a source of peace and encouragement to her. Teach me to support her with patience, understand her struggles, respect her study time, and remind her that she is loved not because of what she achieves, but because of who she is.",
+          "May our love lead us closer to You. Keep her safe wherever she goes. Guard her heart, guide her decisions, bless her family, and surround her with people who encourage her to become the person You have called her to be.",
+          "Tonight, may she sleep without carrying tomorrow's worries. Tomorrow morning, may she rise with renewed courage. Every day, may she remember that she can work with all her heart while trusting You with what she cannot control.",
+          "Lord, let her faith be stronger than her fear, her perseverance stronger than her exhaustion, and her hope stronger than her doubts. I place her dreams, her examination, her future, and her life into Your loving hands. May Your wisdom guide her, Your grace sustain her, and Your peace remain with her always.",
+          "In the mighty, loving, and holy name of Jesus Christ, I pray. Amen."
+        ]
+      },
+      encouragement: {
+        kicker: "Read this when the journey feels heavy",
+        title: "A Reminder for Your Heart",
+        footnote: "Save this thought for the days you need extra courage.",
+        paragraphs: [
+          "My love, I know this journey can be tiring. Some days you may feel confident; other days, you may wonder if you are doing enough. Please remember that a difficult chapter does not mean you are incapable. It means you are learning.",
+          "You do not have to be perfect to make progress. Keep showing up, keep practicing, and give yourself permission to rest. Your effort matters even when the results are not visible yet.",
+          "Pray before you study. Take one topic at a time. When you feel overwhelmed, pause, breathe, and begin with the next small step. You are allowed to ask questions, make mistakes, and learn from them.",
+          "I am praying for your wisdom, peace, good health, and success. I hope you pass your board examination, and I will be proud of the courage and dedication you bring to this journey. Your value as a person is already precious, whatever the result may be.",
+          "May God steady your heart, guide your preparation, and open the right doors for your future. Keep going, my love. You are not alone. ♡",
+          "“I can do all things through Christ who strengthens me.” — Philippians 4:13"
+        ]
+      }
+    };
+
+    const verses = [
+      ["“The Lord gives wisdom; from His mouth come knowledge and understanding.”", "PROVERBS 2:6"],
+      ["“Be strong and courageous. Do not be afraid; do not be discouraged.”", "JOSHUA 1:9"],
+      ["“Cast all your anxiety on Him because He cares for you.”", "1 PETER 5:7"],
+      ["“I can do all things through Christ who strengthens me.”", "PHILIPPIANS 4:13"],
+      ["“In peace I will lie down and sleep, for You alone, Lord, make me dwell in safety.”", "PSALM 4:8"],
+      ["“Commit to the Lord whatever you do, and He will establish your plans.”", "PROVERBS 16:3"],
+      ["“Those who hope in the Lord will renew their strength.”", "ISAIAH 40:31"]
+    ];
+
+    const panel = document.getElementById("prayer-content");
+    const tabs = [...document.querySelectorAll(".tab")];
+    let currentMode = "morning";
+
+    function showPrayer(mode) {
+      currentMode = mode;
+      const prayer = prayers[mode];
+      document.getElementById("prayer-kicker").textContent = prayer.kicker;
+      document.getElementById("prayer-title").textContent = prayer.title;
+      document.getElementById("prayer-footnote").textContent = prayer.footnote;
+      panel.replaceChildren();
+      prayer.paragraphs.forEach((text) => {
+        const p = document.createElement("p");
+        p.textContent = text;
+        panel.appendChild(p);
+      });
+      tabs.forEach((tab) => {
+        const active = tab.dataset.mode === mode;
+        tab.classList.toggle("active", active);
+        tab.setAttribute("aria-pressed", String(active));
+      });
+      document.getElementById("toast").textContent = "";
+      document.getElementById("amen-button").textContent = "I prayed today · Amen";
+    }
+
+    tabs.forEach((tab) => tab.addEventListener("click", () => showPrayer(tab.dataset.mode)));
+
+    const dayNumber = Math.floor(Date.now() / 86400000);
+    const verse = verses[((dayNumber % verses.length) + verses.length) % verses.length];
+    document.getElementById("daily-verse").textContent = verse[0];
+    document.getElementById("daily-reference").textContent = verse[1];
+
+    const amenButton = document.getElementById("amen-button");
+    const toast = document.getElementById("toast");
+    const today = new Date().toLocaleDateString("en-CA");
+    try {
+      if (localStorage.getItem("prayer-amen-date") === today) {
+        amenButton.textContent = "Amen · Prayer completed today";
+      }
+    } catch (_) {}
+
+    amenButton.addEventListener("click", () => {
+      try { localStorage.setItem("prayer-amen-date", today); } catch (_) {}
+      amenButton.textContent = "Amen · Prayer completed today";
+      toast.textContent = "May God's peace stay with you today. ♡";
+    });
+
+    // Use night prayer automatically during typical evening hours, while keeping every prayer one tap away.
+    const hour = new Date().getHours();
+    if (hour >= 19 || hour < 5) showPrayer("night");
+  </script>
+</body>
+</html>
